@@ -1,0 +1,29 @@
+value = int(input("Number to convert: "))
+
+thou = int(value / 1000)
+hun = int((value - (thou * 1000)) / 100)
+tens = int((value - (thou * 1000) - (hun * 100)) / 10)
+units = int(value % 10)
+  
+lvllist = [thou, hun, tens, units]
+onelist = ["M", "C", "X", "I"]
+fivelist = ["v", "D", "L", "V"]
+
+for i in range(len(lvllist)):
+
+    if lvllist[i] == 5:
+        print(fivelist[i], end='')
+    else:
+        if (lvllist[i]) < 4:
+            print(onelist[i] * (lvllist[i]), end='')
+        else:
+            if lvllist[i] == 4:
+                print(onelist[i], end='')
+                print(fivelist[i], end='')
+            else:
+                if lvllist[i] < 9:
+                    print(fivelist[i], end='')
+                    print(onelist[i] * (lvllist[i] - 5), end='')
+                else:
+                    print((onelist[i]), end='')
+                    print((onelist[i-1]), end='')
