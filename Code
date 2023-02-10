@@ -1,75 +1,55 @@
-#gets the number the user wants to convert
-number = input("Number to convert: ")
-
-#checks if we need thousands place, hundreds, tens, or units
-length=len(number)
-value=int(number)
-
-if value > 3000:
-    print("too big!")
+value = int(input("Number to convert: "))
+if value >= 4000:
+  print("too big!")
 else:
-  thou=int(value/1000)
-  hun=int((value-(thou*1000))/100)
-  tens=int((value-(thou*1000)-(hun*100))/10)
-  units=int(value%10)
+  thou = int(value / 1000)
+  hun = int((value - (thou * 1000)) / 100)
+  tens = int((value - (thou * 1000) - (hun * 100)) / 10)
+  units = int(value % 10)
 
-  if thou==5:
-      print("V̅", end='')
-  else:
-    if thou - 4 < 0:
-      print("M"*thou, end='')
-    else:
-      if thou == 4:
-        print("MV̅", end='')
-      else:
-        if thou +1 <10:
-          print("V̅", end='')
-          print("M"*(thou-5), end='')
-        else:
-          print("too big!")
-          end
-          
-  if hun==5:
+  print("M" * thou, end='')
+
+  if hun == 5:
     print("D", end='')
   else:
-    if hun - 4 < 0:
-      print("C"*(hun), end='')
+    if hun < 4:
+      print("C" * (hun), end='')
     else:
       if hun == 4:
         print("CD", end='')
       else:
-        if hun +1 <10:
+        if hun < 9:
           print("D", end='')
-          print("C"*(hun-5), end='')
+          print("C" * (hun - 5), end='')
         else:
           print("CM", end='')
-          
-    if tens==5:
-      print("L", end='')
+
+  if tens == 5:
+    print("L", end='')
+  else:
+    if tens < 4:
+      print("X" * tens, end='')
     else:
-      if tens - 4 < 0:
-        print("X"*tens, end='')
+      if tens == 4:
+        print("XL", end='')
       else:
-        if tens == 4:
-          print("XL", end='')
+        if tens < 9:
+          print("L", end='')
+          print("X" * (tens - 5), end='')
         else:
-          if tens +1 <10:
-            print("L", end='')
-            print("X"*(tens-5), end='')
-          else:
-            print("XC", end='')
-            
-    if units==5:
-      print("V")
+          print("XC", end='')
+
+  if units == 5:
+    print("V")
+  else:
+    if units < 4:
+      print("I" * units)
     else:
-      if units - 4 < 0:
-        print("I"*units)
+      if units == 4:
+        print("IV")
       else:
-        if units == 4:
-          print("IV")
+        if units < 9:
+          print("V", end='')
+          print("I" * (units - 5))
         else:
-          if units +1 <10:
-            print("V", end='')
-            print("I"*(units-5))
-          else:
-            print("IX")
+          print("IX")
