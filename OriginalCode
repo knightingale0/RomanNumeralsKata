@@ -1,0 +1,201 @@
+#gets the number the user wants to convert
+number = input("Number to convert: ")
+
+#checks if we need thousands place, hundreds, tens, or units
+length=len(number)
+
+#makes the input number into a value number
+value=int(number)
+
+#if the number is a single digit:
+if length==1:
+  if value==5:
+    print("V")
+  else:
+    if value - 4 < 0:
+      print("I"*value)
+    else:
+      if value == 4:
+        print("IV")
+      else:
+        if value +1 <10:
+          print("V", end='')
+          print("I"*(value-5))
+        else:
+          print("IX")
+    
+if length==2:
+  units=(value%10)
+  tens=int(((value-units)/10))
+  
+  if tens==5:
+    print("L", end='')
+  else:
+    if tens - 4 < 0:
+      print("X"*tens, end='')
+    else:
+      if tens == 4:
+        print("XL", end='')
+      else:
+        if tens +1 <10:
+          print("L", end='')
+          print("X"*(tens-5), end='')
+        else:
+          print("XC", end='')
+            
+  if units==5:
+    print("V")
+  else:
+    if units - 4 < 0:
+      print("I"*units)
+    else:
+      if units == 4:
+        print("IV")
+      else:
+        if units +1 <10:
+          print("V", end='')
+          print("I"*(units-5))
+        else:
+          print("IX")
+
+if length==3:
+  hun=int(value/100)
+  tens=int((value-(hun*100))/10)
+  units=int(value%10)
+  
+  if hun==5:
+    print("D", end='')
+  else:
+    if hun - 4 < 0:
+      print("C"*(hun), end='')
+    else:
+      if hun == 4:
+        print("CD", end='')
+      else:
+        if hun +1 <10:
+          print("D", end='')
+          print("C"*(hun-5), end='')
+        else:
+          print("CM", end='')
+          
+    if tens==5:
+      print("L", end='')
+    else:
+      if tens - 4 < 0:
+        print("X"*tens, end='')
+      else:
+        if tens == 4:
+          print("XL", end='')
+        else:
+          if tens +1 <10:
+            print("L", end='')
+            print("X"*(tens-5), end='')
+          else:
+            print("XC", end='')
+            
+    if units==5:
+      print("V")
+    else:
+      if units - 4 < 0:
+        print("I"*units)
+      else:
+        if units == 4:
+          print("IV")
+        else:
+          if units +1 <10:
+            print("V", end='')
+            print("I"*(units-5))
+          else:
+            print("IX")
+
+if length==4:
+  thou=int(value/1000)
+  hun=int((value-(thou*1000))/100)
+  tens=int((value-(thou*1000)-(hun*100))/10)
+  units=int(value%10)
+
+  if thou==5:
+      print("V̅", end='')
+  else:
+    if thou - 4 < 0:
+      print("M"*thou, end='')
+    else:
+      if thou == 4:
+        print("MV̅", end='')
+      else:
+        if thou +1 <10:
+          print("V̅", end='')
+          print("M"*(thou-5), end='')
+        else:
+          print("too big!")
+          end
+          
+  if hun==5:
+    print("D", end='')
+  else:
+    if hun - 4 < 0:
+      print("C"*(hun), end='')
+    else:
+      if hun == 4:
+        print("CD", end='')
+      else:
+        if hun +1 <10:
+          print("D", end='')
+          print("C"*(hun-5), end='')
+        else:
+          print("CM", end='')
+          
+    if tens==5:
+      print("L", end='')
+    else:
+      if tens - 4 < 0:
+        print("X"*tens, end='')
+      else:
+        if tens == 4:
+          print("XL", end='')
+        else:
+          if tens +1 <10:
+            print("L", end='')
+            print("X"*(tens-5), end='')
+          else:
+            print("XC", end='')
+            
+    if units==5:
+      print("V")
+    else:
+      if units - 4 < 0:
+        print("I"*units)
+      else:
+        if units == 4:
+          print("IV")
+        else:
+          if units +1 <10:
+            print("V", end='')
+            print("I"*(units-5))
+          else:
+            print("IX")
+
+print( )
+if thou>0:
+  print(thou, end=' ')
+else:
+  print("0 ", end='')
+print("thousands")
+
+if hun>0:
+  print(hun, end=' ') 
+else:
+  print("0 ", end='')
+print("hundreds")
+
+if tens>0:
+  print(tens, end=' ')
+else:
+  print("0 ", end='')
+print("tens")
+
+if units>0:
+  print(units, end=' ')
+else:
+  print("0 ", end='')
+print("units")
